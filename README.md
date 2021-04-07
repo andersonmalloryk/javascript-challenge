@@ -1,2 +1,2 @@
 # javascript-challenge
-Homework thirteen of the UMN Data Analytics and Visualization program. 
+Homework fourteenth of the UMN Data Analytics and Visualization program. 
