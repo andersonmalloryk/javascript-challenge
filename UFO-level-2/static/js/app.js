@@ -7,7 +7,7 @@ var tbody = d3.select("tbody");
 
 // Select button and form from the HTML
 var form = d3.select("#form");
-var filter_button = d3.select("#filter-btn")
+var filter_button = d3.select("#filter-btn");
 
 // Create event handlers for clicking the filter button or pressing the enter key
 form.on("submit", runEnter);
@@ -15,6 +15,7 @@ filter_button.on("click", runEnter);
 
 // Create a function to run both events
 function runEnter() {
+    
     d3.event.preventDefault();
 
     var dateInput = d3.select("#datetime");
@@ -37,7 +38,12 @@ function runEnter() {
     var shapeValue = shapeInput.property("value");
     console.log(shapeValue);
 
-    var filteredData = tableData.filter(date => date.datetime === dateValue).filter(city => city.city === cityValue).filter(state => state.state === stateValue).filter(country => country.country === countryValue).filter(shape => shape.shape === shapeValue);
+    var filteredData = tableData.filter(function(item) {
+        if dateValue != null;
+        return item.datetime === dateValue;
+    });
+        // date => date.datetime === dateValue);
+    // .filter(city => city.city === cityValue).filter(state => state.state === stateValue).filter(country => country.country === countryValue).filter(shape => shape.shape === shapeValue);
 
     console.log(filteredData)
 
