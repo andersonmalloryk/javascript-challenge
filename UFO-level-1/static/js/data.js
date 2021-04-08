@@ -1,3 +1,5 @@
+console.log("UFO data file is being read")
+
 var data = [{
     datetime: "1/1/2010",
     city: "benton",
