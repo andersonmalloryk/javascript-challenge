@@ -38,10 +38,13 @@ function runEnter() {
     var shapeValue = shapeInput.property("value");
     console.log(shapeValue);
 
-    var filteredData = tableData.filter(function(item) {
-        if dateValue != null;
-        return item.datetime === dateValue;
-    });
+    if (dateValue != null){
+        var filteredData = tableData.filter(date => date.datetime === dateValue);
+    }
+    else {
+        filterData = tableData;
+    }
+
         // date => date.datetime === dateValue);
     // .filter(city => city.city === cityValue).filter(state => state.state === stateValue).filter(country => country.country === countryValue).filter(shape => shape.shape === shapeValue);
 
