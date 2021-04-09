@@ -15,11 +15,15 @@ filter_button.on("click", runEnter);
 
 // Create a function to run both events
 function runEnter() {
+
+    // clear HTML to clear the table body
+    document.getElementById("ufo-data" ).innerHTML = "";
     
+    // prevent default 
     d3.event.preventDefault();
 
     var dateInput = d3.select("#datetime");
-    var dateValue = dateInput.property("value");
+    dateValue = dateInput.property("value");
     console.log(dateValue);
 
     var cityInput = d3.select("#city");
@@ -38,16 +42,26 @@ function runEnter() {
     var shapeValue = shapeInput.property("value");
     console.log(shapeValue);
 
-    if (dateValue != null){
-        var filteredData = tableData.filter(date => date.datetime === dateValue);
+    // set up the filtered data so it refreshes when you change out input values
+    var filteredData = tableData
+
+    if (dateValue){
+        filteredData = filteredData.filter(date => date.datetime === dateValue);
     }
-    else {
-        filterData = tableData;
+    if (cityValue){
+        filteredData =filteredData.filter(city => city.city === cityValue);
+    }
+    if (stateValue){
+        filteredData =filteredData.filter(state => state.state === stateValue)
+    }
+    if (countryValue){
+        filteredData =filteredData.filter(country => country.country === countryValue)
     }
 
-        // date => date.datetime === dateValue);
-    // .filter(city => city.city === cityValue).filter(state => state.state === stateValue).filter(country => country.country === countryValue).filter(shape => shape.shape === shapeValue);
-
+    if (shapeValue){
+        filteredData =filteredData.filter(shape => shape.shape === shapeValue);
+    }
+ 
     console.log(filteredData)
 
     // Read data to table
