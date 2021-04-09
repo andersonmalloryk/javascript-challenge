@@ -5,6 +5,18 @@ var tableData = data;
 
 var tbody = d3.select("tbody");
 
+// get a list of states
+// const distinctState = [...new Set(tableData.map(x => x.state))];
+// console.log(distinctState)
+
+// get a list of states
+// const distinctCountry = [...new Set(tableData.map(y => y.country))];
+// console.log(distinctCountry)
+
+// get a list of shapes
+const distinctShape = [...new Set(tableData.map(z => z.shape))];
+console.log(distinctShape)
+
 // Select button and form from the HTML
 var form = d3.select("#form");
 var filter_button = d3.select("#filter-btn");
@@ -52,7 +64,7 @@ function runEnter() {
         filteredData =filteredData.filter(city => city.city === cityValue);
     }
     if (stateValue){
-        filteredData =filteredData.filter(state => state.state === stateValue)
+        filteredData =filteredData.filter(state => state.state === stateValue);
     }
     if (countryValue){
         filteredData =filteredData.filter(country => country.country === countryValue)
